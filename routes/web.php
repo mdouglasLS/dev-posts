@@ -20,7 +20,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/search', [SearchController::class, 'search'])->name('search');
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/post/new', [PostController::class, 'newPost'])->name('new-post');
 
 
 

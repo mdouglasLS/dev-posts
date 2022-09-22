@@ -1,5 +1,5 @@
 <div class="d-flex align-items-center justify-content-end">
-    <a href="{{ route('createPost') }}" class="btn btn-outline-primary me-4">Criar Post</a>
+    <a href="{{ route('new-post') }}" class="btn btn-outline-primary me-4">Criar Post</a>
 
     <div class="dropdown d-flex align-items-end">
         <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -14,9 +14,9 @@
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Dashboard</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><form method="POST" action="{{ route('logout') }}">
+            <li><form action="{{ route('logout') }}" method="post">
                     @csrf
-                    <button type="submit" class="dropdown-item">SAIR</button>
+                    <button type="submit" class="dropdown-item">Sair</button>
                 </form></li>
         </ul>
     </div>

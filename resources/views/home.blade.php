@@ -3,8 +3,8 @@
         {{ $title }}
     </x-slot>
 
-    <section style="max-width: 800px" class="mx-auto">
-        <div class="text-secondary">
+    <x-section>
+        <div class="">
             <p class="fs-6">Posts relevantes</p>
         </div>
 
@@ -15,7 +15,7 @@
         @endforelse
 
         {{ $posts->appends(['search' => request()->input('search')])->links('components.pagination') }}
-    </section>
+    </x-section>
 
 </x-app-layout>
 

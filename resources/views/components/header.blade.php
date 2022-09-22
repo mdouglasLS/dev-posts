@@ -2,7 +2,7 @@
     <nav class="py-2 px-4 border-bottom">
         <div class="container d-flex align-items-center justify-content-md-between">
 
-            <x-application-logo />
+            <x-application-logo class="fs-5"/>
 
             <div class="w-50">
                 <form action="{{ route('search') }}" method="get">
