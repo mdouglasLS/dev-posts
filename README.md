@@ -50,6 +50,9 @@ mix.js('src/app.js', 'dist/')
 .sass('src/app.scss', 'dist/');
 ```
 
+TODO: AUTH with Twitch and Github
+TODO: Dashboard, Profile
+TODO: FOLOW Users
 
 ## License
 

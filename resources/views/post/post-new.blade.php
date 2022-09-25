@@ -8,14 +8,14 @@
             <div class="card-body">
                 <h2>Publicar</h2>
                 <div class="mx-auto my-2">
-                    <form action="" method="POST" role="form">
+                    <form action="{{ route('store-post') }}" method="POST" role="form">
                         @csrf
                         <div class="form-group mb-3">
                             <x-input type="text" name="title" id="title" placeholder="Adicione um título ao post" class="border-primary border-opacity-25"/>
                         </div>
-                        <div class="shadow-sm trumbowyg-dark bg-black mb-3 border border-primary border-opacity-25">
-                            <x-textarea name="content"/>
-                        </div>
+
+                        <x-textarea :name="__('content')" :rows="__('1')"/>
+
                         <x-button>Publicar</x-button>
                     </form>
                 </div>
