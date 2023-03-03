@@ -34,6 +34,13 @@ class LoginRequest extends FormRequest
         ];
     }
 
+    public function messages()
+    {
+        return [
+          'required' => 'Preencha todos os campos.',
+        ];
+    }
+
     /**
      * Attempt to authenticate the request's credentials.
      *

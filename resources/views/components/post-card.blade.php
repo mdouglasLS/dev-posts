@@ -11,8 +11,7 @@
         </div>
     </div>
     <div class="card-body pt-2">
-        <a href="{{ route('get-post',['post' => $post->slug]) }}" class="text-light text-decoration-none"><h1 class="fs-2 card-title">{{ $post->title }}</h1></a>
-        <p class="card-text">{{ Str::words($post->content, 20) }}</p>
+        <a href="{{ route('get-post',['user' => $post->user->username ,'slug' => $post->slug]) }}" class="text-light text-decoration-none"><h1 class="fs-2 card-title">{{ $post->title }}</h1></a>
     </div>
     <div class="card-footer">
         <a href="#" class="text-muted text-decoration-none me-5"><i class="far fa-heart me-2"></i> Curtidas</a>

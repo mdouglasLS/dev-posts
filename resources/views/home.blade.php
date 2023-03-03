@@ -25,12 +25,12 @@
                 </x-slot>
 
                 <div>
-                    <a href="{{ route('get-post',['post' => $post->slug]) }}" class="text-light text-decoration-none"><h1 class="fs-2 card-title">{{ $post->title }}</h1></a>
+                    <a href="{{ route('get-post',['user' => $post->user->username, 'slug' => $post->slug]) }}" class="text-light text-decoration-none"><h1 class="fs-2 card-title">{{ $post->title }}</h1></a>
                 </div>
 
                 <x-slot name="footer">
-                    <a href="{{ route('get-post',['post' => $post->slug]) }}" class="text-muted text-decoration-none me-5"><i class="far fa-heart me-2"></i> Curtidas</a>
-                    <a href="{{ route('get-post',['post' => $post->slug]) }}" class="text-muted text-decoration-none"><i class="far fa-comment me-2"></i>{{ $post->comments->count() }} Comentários</a>
+                    <a href="{{ route('get-post',['user' => $post->user->username, 'slug' => $post->slug]) }}" class="text-muted text-decoration-none me-5"><i class="far fa-heart me-2"></i> Curtidas</a>
+                    <a href="{{ route('get-post',['user' => $post->user->username, 'slug' => $post->slug]) }}" class="text-muted text-decoration-none"><i class="far fa-comment me-2"></i>{{ $post->comments->count() }} Comentários</a>
                 </x-slot>
 
             </x-card>

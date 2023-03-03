@@ -10,14 +10,15 @@
                 </form>
             </div>
 
-            @if(Auth::check())
+            @auth()
                 <x-admin-nav/>
-            @else
+            @endauth
+            @guest()
                 <div class="text-end">
                     <a href=" {{route('login')}}" class="btn btn-outline-light me-2">Entrar</a>
                     <a href="{{ route('register') }}" class="btn btn-primary">Cadastrar</a>
                 </div>
-            @endif
+            @endguest
 
         </div>
     </nav>

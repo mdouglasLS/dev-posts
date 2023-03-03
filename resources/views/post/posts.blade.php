@@ -19,7 +19,7 @@
 
             <div>
                 <h1 class="fs-2">{{ $post->title }}</h1>
-                <p>{{ $post->content }}</p>
+                <p>{{ Str::of($post->content)->toHtmlString() }}</p>
             </div>
 
             <div class="accordion" id="accordionExample">
@@ -31,8 +31,20 @@
                     </h2>
                     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                         <div class="accordion-body text-light">
-                            <x-textarea :name="__('comment')"/>
-                            <x-button>Comentar</x-button>
+                            @auth()
+                                <form action="{{ route('comment-post', ['user' => $post->user->username,'slug'=>$post->slug]) }}" method="post">
+                                    @csrf
+                                    <x-textarea :name="__('comment')"/>
+                                    <x-button>Comentar</x-button>
+                                </form>
+                            @endauth
+
+                            @guest()
+                                <div>
+                                    <p>É necessário fazer login para fazer comentários</p>
+                                    <a href="{{ route('login') }}" class="btn btn-primary">Fazer login</a>
+                                </div>
+                            @endguest
                         </div>
                     </div>
                 </div>
