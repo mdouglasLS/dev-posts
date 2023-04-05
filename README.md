@@ -2,17 +2,9 @@
 
 ## TODO
 
-- Implementar as rotas da seguinte forma
-  - `"/"` a home deve mostrar Posts publicados recentemente
-  - `"/username"` irá para o perfil do usuário
-  - `"/username/slug"` irá para um post específico
-  - `"/username/followers"` mostrar usuarios que segue
-  - `"/username/following"` mostrar seguidores
-  - `"/new"` para criar novo post
-  - `"/edit"` para editar um post
-  - `"/dashboard"` mostra dados relacionados a posts, likes, comentarios... 
-  - `"/settings"` para editar relacionados ao perfil 
-  - `"/readinglist"` posts salvos
+- About no banco de dados
+- upload foto perfil
+ 
 
 - Criar Views
   - Dashboard

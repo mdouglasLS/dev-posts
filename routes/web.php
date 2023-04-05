@@ -5,8 +5,18 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 
 
+Route::fallback(function () {
+    return view('not-found');
+})->name('not-found');
+
+Route::get('/dashboard', function () {
+    return view('admin.dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -28,12 +38,4 @@ Route::post('/post/c/{user:username}/{slug}', [CommentController::class, 'store'
 Route::delete('/comment/d/{comment:id}', [CommentController::class, 'delete'])->middleware('auth')->name('delete-comment');
 //endSection Posts
 
-Route::fallback(function () {
-    return view('not-found');
-})->name('not-found');
-
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-})->middleware(['auth'])->name('dashboard');
-
-require __DIR__.'/auth.php';
+Route::get('/{user:username}', [UserController::class, 'index'])->name('profile');

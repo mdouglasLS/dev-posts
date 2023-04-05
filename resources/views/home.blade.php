@@ -20,7 +20,7 @@
                     </div>
                     <div class="">
                         <a href="#" class="text-decoration-none text-light py-2">{{ $post->user->fullName }}</a>
-                        <p class="card-text"><small class="text-muted">{{ $post->created_at->format('d/m/Y') }}</small></p>
+                        <p class="card-text"><small class="text-muted">{{ $post->created_at->format('M/y') }}</small></p>
                     </div>
                 </x-slot>
 
