@@ -1,5 +1,5 @@
 <div class="card bg-dark border-1 border-secondary border-opacity-10 mb-3 p-2">
-    <div class="card-header ps-2">
+    <div class="card-header ps-2 d-flex align-items-center">
         {{ $header }}
     </div>
 

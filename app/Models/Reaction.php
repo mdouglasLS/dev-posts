@@ -15,5 +15,11 @@ class Reaction extends Model
         'reaction'
     ];
 
+    public function user()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
+
 
 }

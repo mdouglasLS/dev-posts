@@ -21,7 +21,7 @@ class PostFactory extends Factory
             'slug' => Str::slug($title),
             'user_id' => User::all('id')->random(),
             'content' => $this->faker->paragraph(),
-            'thumbImage' => null
+            'thumbImage' => $this->faker->imageUrl(300,300)
         ];
     }
 }

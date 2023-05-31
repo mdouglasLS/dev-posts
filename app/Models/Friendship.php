@@ -14,17 +14,10 @@ class Friendship extends Model
         'followed_user'
     ];
 
+    protected $table = 'friendships';
+
     public function user()
     {
         return $this->belongsTo(User::class);
-    }
-    public function following()
-    {
-        return $this->belongsToMany(User::class, 'friendships', 'following_user', 'followed_user');
-    }
-
-    public function followed()
-    {
-        return $this->belongsToMany(User::class, 'friendships', 'followed_user', 'following_user');
     }
 }

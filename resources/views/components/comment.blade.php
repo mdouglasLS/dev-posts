@@ -1,16 +1,15 @@
 <div class="row bg-transparent p-4">
     <div class="col-1 mt-3">
         <div class="float-end">
-            <a href="#" class="">
+            <a href="{{ route('profile', $comment->user->username) }}" class="">
                 <img src="https://github.com/mdo.png" alt="" width="45" height="45" class="rounded-circle">
             </a>
         </div>
     </div>
     <div class="col-11 card bg-transparent p-3 border-opacity-10 border-light">
         <div class="mb-3 position-relative">
-            <a href="#" class="text-decoration-none text-light me-4">{{ $comment->user->fullName }}</a>
-            <span class=""><small class="text-muted">{{ $comment->created_at }}</small></span>
-            @isset(Auth::user()->id)
+            <a href="{{ route('profile', $comment->user->username) }}" class="text-decoration-none text-light me-4">{{ $comment->user->fullName }}</a>
+            @if (Auth::check())
                 @if(Auth::user()->id == $comment->user_id || Auth::user()->id == $comment->post->user_id)
                     <div class="position-absolute top-50 end-0 translate-middle-y">
                         <div class="dropdown">
@@ -34,10 +33,11 @@
                         </div>
                     </div>
                 @endif
-            @endisset
+            @endif
         </div>
         <div class="w-75">
             {{ Str::of($comment->comment)->toHtmlString() }}
         </div>
+        <span class=""><small class="text-muted" style="font-size: .8em">{{ $comment->created_at->format('M, y') }}</small></span>
     </div>
 </div>

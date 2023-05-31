@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
             PostSeeder::class,
             CommentSeeder::class,
             FriendshipSeeder::class,
-            ReactionSeeder::class
+            ReactionSeeder::class,
+            ProfileSeeder::class,
         ]);
     }
 }

@@ -29,11 +29,11 @@
                                 <p class="small text-muted mb-0">Posts</p>
                             </div>
                             <div class="px-3">
-                                <p class="mb-1 h5">1026</p>
+                                <p class="mb-1 h5">{{ count($user->followers) }}</p>
                                 <p class="small text-muted mb-0">Seguidores</p>
                             </div>
                             <div>
-                                <p class="mb-1 h5">478</p>
+                                <p class="mb-1 h5">{{ count($user->following) }}</p>
                                 <p class="small text-muted mb-0">Seguindo</p>
                             </div>
                         </div>

@@ -20,15 +20,16 @@ class PostController extends Controller
 
     public function getPostBySlug(User $user, string $slug)
     {
-        $post = Post::where('slug', $slug)->where('user_id', $user->id)->with('user', 'comments')->first();
+        $post = Post::where('slug', $slug)->where('user_id', $user->id)->with(['user', 'reactions', 'comments' => function($query) {
+            $query->orderByDesc('created_at');
+    }])->first();
 
         return view('post.posts', compact('post'));
     }
 
     public function getAllPosts()
     {
-        $posts = Post::with('user', 'comments')->paginate(15);
-
+        $posts = Post::with('user', 'comments', 'reactions')->paginate(15);
         $title = 'Posts';
         return view('site.posts', compact('title','posts'));
     }
@@ -49,10 +50,18 @@ class PostController extends Controller
         return redirect()->route('get-post',['user' => $store->user->username,'slug' => $store->slug]);
     }
 
+    public function editPost(Request $request)
+    {
+        return view('post.post-edit');
+    }
+
     public function storeEditPost(Request $request, User $user, string $slug)
     {
 
+    }
 
+    public function react(Request $request, User $user, Post $post)
+    {
 
     }
 

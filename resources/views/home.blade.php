@@ -20,7 +20,7 @@
                     </div>
                     <div class="">
                         <a href="#" class="text-decoration-none text-light py-2">{{ $post->user->fullName }}</a>
-                        <p class="card-text"><small class="text-muted">{{ $post->created_at->format('M/y') }}</small></p>
+                        <p class="card-text"><small class="text-muted" style="font-size: .8em">{{ $post->created_at->format('d \d\e M') }}</small></p>
                     </div>
                 </x-slot>
 
@@ -29,7 +29,7 @@
                 </div>
 
                 <x-slot name="footer">
-                    <a href="{{ route('get-post',['user' => $post->user->username, 'slug' => $post->slug]) }}" class="text-muted text-decoration-none me-5"><i class="far fa-heart me-2"></i> Curtidas</a>
+                    <a href="{{ route('get-post',['user' => $post->user->username, 'slug' => $post->slug]) }}" class="text-muted text-decoration-none me-5"><i class="far fa-heart me-2"></i>{{ count($post->reactions) }} Curtidas</a>
                     <a href="{{ route('get-post',['user' => $post->user->username, 'slug' => $post->slug]) }}" class="text-muted text-decoration-none"><i class="far fa-comment me-2"></i>{{ $post->comments->count() }} Comentários</a>
                 </x-slot>
 
